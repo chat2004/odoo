@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+
+      <!-- menu categories -->
+      <!-- Add menu Messages entry in Recruitment -->
+      <menuitem name="Messages" id="menu_recruitment_menu_mail_message"
+                parent="hr_recruitment.menu_hr_recruitment_root" action="mail_custom.custom_action_view_mail_message"/>
+
+      <!-- actions -->
+
+    </data>
+</odoo>

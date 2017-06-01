@@ -1,0 +1,296 @@
+2017-05-24 04:34:27,353 17244 INFO ? odoo: Odoo version 10.0
+2017-05-24 04:34:27,354 17244 INFO ? odoo: Using configuration file at /opt/odoo/debian/odoo.conf
+2017-05-24 04:34:27,354 17244 INFO ? odoo: addons paths: ['/home/vu/.local/share/Odoo/addons/10.0', u'/opt/odoo/addons', '/opt/odoo/odoo/addons']
+2017-05-24 04:34:27,354 17244 INFO ? odoo: database: odoo@default:default
+2017-05-24 04:34:27,359 17244 INFO ? odoo.service.server: HTTP service (werkzeug) running on 0.0.0.0:8069
+2017-05-24 04:34:37,550 17244 INFO ? odoo.addons.bus.models.bus: Bus.loop listen imbus on db postgres
+2017-05-24 04:34:37,555 17244 INFO ? odoo.sql_db: Connection to the database failed
+2017-05-24 04:34:37,558 17244 ERROR ? odoo.addons.bus.models.bus: Bus.loop error, sleep and retry
+Traceback (most recent call last):
+  File "/opt/odoo/addons/bus/models/bus.py", line 170, in run
+    self.loop()
+  File "/opt/odoo/addons/bus/models/bus.py", line 148, in loop
+    with odoo.sql_db.db_connect('postgres').cursor() as cr:
+  File "/opt/odoo/odoo/sql_db.py", line 622, in cursor
+    return Cursor(self.__pool, self.dbname, self.dsn, serialized=serialized)
+  File "/opt/odoo/odoo/sql_db.py", line 164, in __init__
+    self._cnx = pool.borrow(dsn)
+  File "/opt/odoo/odoo/sql_db.py", line 505, in _locked
+    return fun(self, *args, **kwargs)
+  File "/opt/odoo/odoo/sql_db.py", line 573, in borrow
+    **connection_info)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 164, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "odoo"
+
+2017-05-24 04:34:37,777 17244 INFO ? odoo.addons.report.models.report: Will use the Wkhtmltopdf binary at /usr/bin/wkhtmltopdf
+2017-05-24 04:34:37,778 17244 INFO ? odoo.addons.report.models.report: Wkhtmltopdf seems to be broken.
+2017-05-24 04:34:37,887 17244 INFO ? odoo.http: HTTP Configuring static files
+2017-05-24 04:34:37,891 17244 INFO ? odoo.sql_db: Connection to the database failed
+2017-05-24 04:34:37,893 17244 INFO ? werkzeug: 192.168.179.1 - - [24/May/2017 04:34:37] "GET /web/database/selector HTTP/1.1" 500 -
+2017-05-24 04:34:37,899 17244 ERROR ? werkzeug: Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 193, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 181, in execute
+    application_iter = app(environ, start_response)
+  File "/opt/odoo/odoo/service/server.py", line 250, in app
+    return self.app(e, s)
+  File "/opt/odoo/odoo/service/wsgi_server.py", line 184, in application
+    return application_unproxied(environ, start_response)
+  File "/opt/odoo/odoo/service/wsgi_server.py", line 170, in application_unproxied
+    result = handler(environ, start_response)
+  File "/opt/odoo/odoo/http.py", line 1306, in __call__
+    return self.dispatch(environ, start_response)
+  File "/opt/odoo/odoo/http.py", line 1280, in __call__
+    return self.app(environ, start_wrapped)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/wsgi.py", line 599, in __call__
+    return self.app(environ, start_response)
+  File "/opt/odoo/odoo/http.py", line 1443, in dispatch
+    self.setup_db(httprequest)
+  File "/opt/odoo/odoo/http.py", line 1366, in setup_db
+    httprequest.session.db = db_monodb(httprequest)
+  File "/opt/odoo/odoo/http.py", line 1521, in db_monodb
+    dbs = db_list(True, httprequest)
+  File "/opt/odoo/odoo/http.py", line 1495, in db_list
+    dbs = odoo.service.db.list_dbs(force)
+  File "/opt/odoo/odoo/service/db.py", line 325, in list_dbs
+    with closing(db.cursor()) as cr:
+  File "/opt/odoo/odoo/sql_db.py", line 622, in cursor
+    return Cursor(self.__pool, self.dbname, self.dsn, serialized=serialized)
+  File "/opt/odoo/odoo/sql_db.py", line 164, in __init__
+    self._cnx = pool.borrow(dsn)
+  File "/opt/odoo/odoo/sql_db.py", line 505, in _locked
+    return fun(self, *args, **kwargs)
+  File "/opt/odoo/odoo/sql_db.py", line 573, in borrow
+    **connection_info)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 164, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "odoo"
+2017-05-24 04:34:40,211 17244 INFO ? odoo.sql_db: Connection to the database failed
+2017-05-24 04:34:40,217 17244 INFO ? werkzeug: 192.168.179.1 - - [24/May/2017 04:34:40] "POST /longpolling/poll HTTP/1.1" 500 -
+2017-05-24 04:34:40,230 17244 ERROR ? werkzeug: Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 193, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 181, in execute
+    application_iter = app(environ, start_response)
+  File "/opt/odoo/odoo/service/server.py", line 250, in app
+    return self.app(e, s)
+  File "/opt/odoo/odoo/service/wsgi_server.py", line 184, in application
+    return application_unproxied(environ, start_response)
+  File "/opt/odoo/odoo/service/wsgi_server.py", line 170, in application_unproxied
+    result = handler(environ, start_response)
+  File "/opt/odoo/odoo/http.py", line 1306, in __call__
+    return self.dispatch(environ, start_response)
+  File "/opt/odoo/odoo/http.py", line 1280, in __call__
+    return self.app(environ, start_wrapped)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/wsgi.py", line 599, in __call__
+    return self.app(environ, start_response)
+  File "/opt/odoo/odoo/http.py", line 1443, in dispatch
+    self.setup_db(httprequest)
+  File "/opt/odoo/odoo/http.py", line 1366, in setup_db
+    httprequest.session.db = db_monodb(httprequest)
+  File "/opt/odoo/odoo/http.py", line 1521, in db_monodb
+    dbs = db_list(True, httprequest)
+  File "/opt/odoo/odoo/http.py", line 1495, in db_list
+    dbs = odoo.service.db.list_dbs(force)
+  File "/opt/odoo/odoo/service/db.py", line 325, in list_dbs
+    with closing(db.cursor()) as cr:
+  File "/opt/odoo/odoo/sql_db.py", line 622, in cursor
+    return Cursor(self.__pool, self.dbname, self.dsn, serialized=serialized)
+  File "/opt/odoo/odoo/sql_db.py", line 164, in __init__
+    self._cnx = pool.borrow(dsn)
+  File "/opt/odoo/odoo/sql_db.py", line 505, in _locked
+    return fun(self, *args, **kwargs)
+  File "/opt/odoo/odoo/sql_db.py", line 573, in borrow
+    **connection_info)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 164, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "odoo"
+2017-05-24 04:34:57,221 17244 INFO ? odoo.sql_db: Connection to the database failed
+2017-05-24 04:34:57,227 17244 INFO ? werkzeug: 192.168.179.1 - - [24/May/2017 04:34:57] "POST /longpolling/poll HTTP/1.1" 500 -
+2017-05-24 04:34:57,244 17244 ERROR ? werkzeug: Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 193, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 181, in execute
+    application_iter = app(environ, start_response)
+  File "/opt/odoo/odoo/service/server.py", line 250, in app
+    return self.app(e, s)
+  File "/opt/odoo/odoo/service/wsgi_server.py", line 184, in application
+    return application_unproxied(environ, start_response)
+  File "/opt/odoo/odoo/service/wsgi_server.py", line 170, in application_unproxied
+    result = handler(environ, start_response)
+  File "/opt/odoo/odoo/http.py", line 1306, in __call__
+    return self.dispatch(environ, start_response)
+  File "/opt/odoo/odoo/http.py", line 1280, in __call__
+    return self.app(environ, start_wrapped)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/wsgi.py", line 599, in __call__
+    return self.app(environ, start_response)
+  File "/opt/odoo/odoo/http.py", line 1443, in dispatch
+    self.setup_db(httprequest)
+  File "/opt/odoo/odoo/http.py", line 1366, in setup_db
+    httprequest.session.db = db_monodb(httprequest)
+  File "/opt/odoo/odoo/http.py", line 1521, in db_monodb
+    dbs = db_list(True, httprequest)
+  File "/opt/odoo/odoo/http.py", line 1495, in db_list
+    dbs = odoo.service.db.list_dbs(force)
+  File "/opt/odoo/odoo/service/db.py", line 325, in list_dbs
+    with closing(db.cursor()) as cr:
+  File "/opt/odoo/odoo/sql_db.py", line 622, in cursor
+    return Cursor(self.__pool, self.dbname, self.dsn, serialized=serialized)
+  File "/opt/odoo/odoo/sql_db.py", line 164, in __init__
+    self._cnx = pool.borrow(dsn)
+  File "/opt/odoo/odoo/sql_db.py", line 505, in _locked
+    return fun(self, *args, **kwargs)
+  File "/opt/odoo/odoo/sql_db.py", line 573, in borrow
+    **connection_info)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 164, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "odoo"
+2017-05-24 04:34:58,453 17244 INFO ? odoo.sql_db: Connection to the database failed
+2017-05-24 04:34:58,455 17244 INFO ? werkzeug: 192.168.179.1 - - [24/May/2017 04:34:58] "GET /web/login HTTP/1.1" 500 -
+2017-05-24 04:34:58,459 17244 ERROR ? werkzeug: Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 193, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 181, in execute
+    application_iter = app(environ, start_response)
+  File "/opt/odoo/odoo/service/server.py", line 250, in app
+    return self.app(e, s)
+  File "/opt/odoo/odoo/service/wsgi_server.py", line 184, in application
+    return application_unproxied(environ, start_response)
+  File "/opt/odoo/odoo/service/wsgi_server.py", line 170, in application_unproxied
+    result = handler(environ, start_response)
+  File "/opt/odoo/odoo/http.py", line 1306, in __call__
+    return self.dispatch(environ, start_response)
+  File "/opt/odoo/odoo/http.py", line 1280, in __call__
+    return self.app(environ, start_wrapped)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/wsgi.py", line 599, in __call__
+    return self.app(environ, start_response)
+  File "/opt/odoo/odoo/http.py", line 1443, in dispatch
+    self.setup_db(httprequest)
+  File "/opt/odoo/odoo/http.py", line 1366, in setup_db
+    httprequest.session.db = db_monodb(httprequest)
+  File "/opt/odoo/odoo/http.py", line 1521, in db_monodb
+    dbs = db_list(True, httprequest)
+  File "/opt/odoo/odoo/http.py", line 1495, in db_list
+    dbs = odoo.service.db.list_dbs(force)
+  File "/opt/odoo/odoo/service/db.py", line 325, in list_dbs
+    with closing(db.cursor()) as cr:
+  File "/opt/odoo/odoo/sql_db.py", line 622, in cursor
+    return Cursor(self.__pool, self.dbname, self.dsn, serialized=serialized)
+  File "/opt/odoo/odoo/sql_db.py", line 164, in __init__
+    self._cnx = pool.borrow(dsn)
+  File "/opt/odoo/odoo/sql_db.py", line 505, in _locked
+    return fun(self, *args, **kwargs)
+  File "/opt/odoo/odoo/sql_db.py", line 573, in borrow
+    **connection_info)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 164, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "odoo"
+2017-05-24 04:35:22,204 17244 INFO ? odoo.sql_db: Connection to the database failed
+2017-05-24 04:35:22,213 17244 INFO ? werkzeug: 192.168.179.1 - - [24/May/2017 04:35:22] "POST /longpolling/poll HTTP/1.1" 500 -
+2017-05-24 04:35:22,224 17244 ERROR ? werkzeug: Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 193, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 181, in execute
+    application_iter = app(environ, start_response)
+  File "/opt/odoo/odoo/service/server.py", line 250, in app
+    return self.app(e, s)
+  File "/opt/odoo/odoo/service/wsgi_server.py", line 184, in application
+    return application_unproxied(environ, start_response)
+  File "/opt/odoo/odoo/service/wsgi_server.py", line 170, in application_unproxied
+    result = handler(environ, start_response)
+  File "/opt/odoo/odoo/http.py", line 1306, in __call__
+    return self.dispatch(environ, start_response)
+  File "/opt/odoo/odoo/http.py", line 1280, in __call__
+    return self.app(environ, start_wrapped)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/wsgi.py", line 599, in __call__
+    return self.app(environ, start_response)
+  File "/opt/odoo/odoo/http.py", line 1443, in dispatch
+    self.setup_db(httprequest)
+  File "/opt/odoo/odoo/http.py", line 1366, in setup_db
+    httprequest.session.db = db_monodb(httprequest)
+  File "/opt/odoo/odoo/http.py", line 1521, in db_monodb
+    dbs = db_list(True, httprequest)
+  File "/opt/odoo/odoo/http.py", line 1495, in db_list
+    dbs = odoo.service.db.list_dbs(force)
+  File "/opt/odoo/odoo/service/db.py", line 325, in list_dbs
+    with closing(db.cursor()) as cr:
+  File "/opt/odoo/odoo/sql_db.py", line 622, in cursor
+    return Cursor(self.__pool, self.dbname, self.dsn, serialized=serialized)
+  File "/opt/odoo/odoo/sql_db.py", line 164, in __init__
+    self._cnx = pool.borrow(dsn)
+  File "/opt/odoo/odoo/sql_db.py", line 505, in _locked
+    return fun(self, *args, **kwargs)
+  File "/opt/odoo/odoo/sql_db.py", line 573, in borrow
+    **connection_info)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 164, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "odoo"
+2017-05-24 04:35:27,589 17244 INFO ? odoo.addons.bus.models.bus: Bus.loop listen imbus on db postgres
+2017-05-24 04:35:27,596 17244 INFO ? odoo.sql_db: Connection to the database failed
+2017-05-24 04:35:27,596 17244 ERROR ? odoo.addons.bus.models.bus: Bus.loop error, sleep and retry
+Traceback (most recent call last):
+  File "/opt/odoo/addons/bus/models/bus.py", line 170, in run
+    self.loop()
+  File "/opt/odoo/addons/bus/models/bus.py", line 148, in loop
+    with odoo.sql_db.db_connect('postgres').cursor() as cr:
+  File "/opt/odoo/odoo/sql_db.py", line 622, in cursor
+    return Cursor(self.__pool, self.dbname, self.dsn, serialized=serialized)
+  File "/opt/odoo/odoo/sql_db.py", line 164, in __init__
+    self._cnx = pool.borrow(dsn)
+  File "/opt/odoo/odoo/sql_db.py", line 505, in _locked
+    return fun(self, *args, **kwargs)
+  File "/opt/odoo/odoo/sql_db.py", line 573, in borrow
+    **connection_info)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 164, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "odoo"
+
+2017-05-24 04:35:53,185 17244 INFO ? odoo.sql_db: Connection to the database failed
+2017-05-24 04:35:53,187 17244 INFO ? werkzeug: 192.168.179.1 - - [24/May/2017 04:35:53] "POST /longpolling/poll HTTP/1.1" 500 -
+2017-05-24 04:35:53,191 17244 ERROR ? werkzeug: Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 193, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 181, in execute
+    application_iter = app(environ, start_response)
+  File "/opt/odoo/odoo/service/server.py", line 250, in app
+    return self.app(e, s)
+  File "/opt/odoo/odoo/service/wsgi_server.py", line 184, in application
+    return application_unproxied(environ, start_response)
+  File "/opt/odoo/odoo/service/wsgi_server.py", line 170, in application_unproxied
+    result = handler(environ, start_response)
+  File "/opt/odoo/odoo/http.py", line 1306, in __call__
+    return self.dispatch(environ, start_response)
+  File "/opt/odoo/odoo/http.py", line 1280, in __call__
+    return self.app(environ, start_wrapped)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/wsgi.py", line 599, in __call__
+    return self.app(environ, start_response)
+  File "/opt/odoo/odoo/http.py", line 1443, in dispatch
+    self.setup_db(httprequest)
+  File "/opt/odoo/odoo/http.py", line 1366, in setup_db
+    httprequest.session.db = db_monodb(httprequest)
+  File "/opt/odoo/odoo/http.py", line 1521, in db_monodb
+    dbs = db_list(True, httprequest)
+  File "/opt/odoo/odoo/http.py", line 1495, in db_list
+    dbs = odoo.service.db.list_dbs(force)
+  File "/opt/odoo/odoo/service/db.py", line 325, in list_dbs
+    with closing(db.cursor()) as cr:
+  File "/opt/odoo/odoo/sql_db.py", line 622, in cursor
+    return Cursor(self.__pool, self.dbname, self.dsn, serialized=serialized)
+  File "/opt/odoo/odoo/sql_db.py", line 164, in __init__
+    self._cnx = pool.borrow(dsn)
+  File "/opt/odoo/odoo/sql_db.py", line 505, in _locked
+    return fun(self, *args, **kwargs)
+  File "/opt/odoo/odoo/sql_db.py", line 573, in borrow
+    **connection_info)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 164, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "odoo"
+2017-05-24 04:36:00,778 17244 INFO ? odoo.service.server: Initiating shutdown
+2017-05-24 04:36:00,778 17244 INFO ? odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown.
