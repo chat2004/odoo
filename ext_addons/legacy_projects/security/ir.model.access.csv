@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_legacy_projects_legacy_projects,legacy_projects.legacy_projects,model_legacy_projects_legacy_projects,,1,0,0,0
