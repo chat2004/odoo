@@ -3,12 +3,6 @@
     <data noupdate="1">
 
         <!-- RULES -->
-        <record id="oit_mail_message_object_comment_public" model="ir.rule">
-            <field name="name">mail.message.subtype: access public object comments</field>
-            <field name="model_id" ref="mail.model_mail_message"/>
-            <field name="domain_force">[('subtype_id.name', '!=', 'Salary')]</field>
-            <field name="groups" eval="[(4, ref('hr_recruitment.group_hr_recruitment_user'))]"/>
-        </record>
 
         <record id="oit_mail_message_view_public" model="ir.rule">
             <field name="name">mail.message: access public message</field>
