@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "auth_ldap_custom",
+    'name': "OutousrceIt Custom LDAP",
 
     'summary': """Custom LDAP authentication""",
 

@@ -1,14 +1,13 @@
-from odoo.exceptions import AccessDenied
 
 from odoo import api, models, registry, SUPERUSER_ID
 
 
-class Users(models.Model):
+class OitUsers(models.Model):
     _inherit = "res.users"
 
     @classmethod
     def _login(cls, db, login, password):
-        user_id = super(Users, cls)._login(db, login, password)
+        user_id = super(OitUsers, cls)._login(db, login, password)
         if user_id:
             with registry(db).cursor() as cr:
                 self = api.Environment(cr, SUPERUSER_ID, {})[cls._name]
