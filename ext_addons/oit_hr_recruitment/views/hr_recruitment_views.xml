@@ -2,14 +2,11 @@
     <data>
 
         <!-- menu categories -->
-        <!-- Add menu Messages entry in Recruitment -->
-        <menuitem name="Messages" id="menu_recruitment_menu_mail_message"
-                parent="hr_recruitment.menu_hr_recruitment_root" action="mail_custom.custom_action_view_mail_message"/>
 
         <!-- actions -->
 
         <!-- views -->
-        <record model="ir.ui.view" id="custom_crm_case_form_view_job">
+        <record model="ir.ui.view" id="oit_crm_case_form_view_job">
             <field name="name">Custom - Jobs - Recruitment Form</field>
             <field name="model">hr.applicant</field>
             <field name="inherit_id" ref="hr_recruitment.crm_case_form_view_job"/>

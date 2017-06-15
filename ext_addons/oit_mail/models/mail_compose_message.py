@@ -3,7 +3,7 @@
 from odoo import models, fields, api
 
 
-class CustomMailComposer(models.TransientModel):
+class OitMailComposer(models.TransientModel):
     _inherit = 'mail.compose.message'
 
     @api.multi
@@ -13,5 +13,5 @@ class CustomMailComposer(models.TransientModel):
         if self.is_log and self.subtype_id:
             self.is_log = False
 
-        res = super(CustomMailComposer, self).send_mail(auto_commit)
+        res = super(OitMailComposer, self).send_mail(auto_commit)
         return res
