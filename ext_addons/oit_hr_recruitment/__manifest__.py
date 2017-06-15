@@ -18,6 +18,7 @@
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
+        'security/hr_recruitment_security.xml',
         'views/hr_recruitment_views.xml',
         'views/templates.xml',
     ],
