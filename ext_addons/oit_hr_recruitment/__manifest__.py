@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Custom Recruitment",
+    'name': "OutsourceIt Custom Recruitment",
 
     'summary': "Custom Recruitment process",
 
@@ -13,7 +13,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['hr_recruitment', 'mail_custom'],
+    'depends': ['hr_recruitment', 'oit_mail'],
 
     # always loaded
     'data': [

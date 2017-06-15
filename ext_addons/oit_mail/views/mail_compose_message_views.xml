@@ -1,8 +1,8 @@
 <odoo>
     <data>
         <!-- explicit list view definition -->
-        <record model="ir.ui.view" id="custom_email_compose_message_wizard_form">
-          <field name="name">mail_custom.compose.message.form</field>
+        <record model="ir.ui.view" id="oit_email_compose_message_wizard_form">
+          <field name="name">oit_mail.compose.message.form</field>
           <field name="model">mail.compose.message</field>
           <field name="inherit_id" ref="mail.email_compose_message_wizard_form"/>
           <field name="arch" type="xml">

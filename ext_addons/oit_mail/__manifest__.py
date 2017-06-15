@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Custom mail message",
+    'name': "OutsourceIt Custom Mail Message",
 
     'summary': 'Customized mail message module',
 
