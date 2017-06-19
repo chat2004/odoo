@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="mt_message_subtype_salary" model="mail.message.subtype">
+            <field name="name">Salary</field>
+            <field name="default" eval="False"/>
+        </record>
+        <record id="mt_message_subtype_private" model="mail.message.subtype">
+            <field name="name">Private</field>
+            <field name="default" eval="False"/>
+        </record>
+    </data>
+</odoo>
