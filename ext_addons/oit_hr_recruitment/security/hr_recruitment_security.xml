@@ -10,5 +10,26 @@
             <field name="groups" eval="[(4, ref('hr_recruitment.group_hr_recruitment_user'))]"/>
         </record>
 
+        <record id="oit_recruitment_message_object_all" model="ir.rule">
+            <field name="name">mail.message.subtype: recruitment access all message</field>
+            <field name="model_id" ref="mail.model_mail_message"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('hr_recruitment.group_hr_recruitment_manager'))]"/>
+        </record>
+
+        <record id="oit_recruitment_attachment_own_access" model="ir.rule">
+            <field name="name">ir.attachment self access</field>
+            <field name="model_id" ref="base.model_ir_attachment"/>
+            <field name="domain_force">['|',('create_uid', '=', user.id),'&amp;',('res_model','!=','hr.applicant'),('res_model','!=','hr.employee')]</field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="oit_recruitment_attachment_access_all" model="ir.rule">
+            <field name="name">ir.attachment access all</field>
+            <field name="model_id" ref="base.model_ir_attachment"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('hr_recruitment.group_hr_recruitment_manager'))]"/>
+        </record>
+
     </data>
 </odoo>
