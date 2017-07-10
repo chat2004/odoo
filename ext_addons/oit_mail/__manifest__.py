@@ -20,10 +20,9 @@
         # 'security/ir.model.access.csv',
         'data/mail_message_data.xml',
         'security/mail_security.xml',
+        'views/templates.xml',
         'views/mail_compose_message_views.xml',
         'views/mail_message_views.xml',
-        'views/views.xml',
-        'views/templates.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
