@@ -7,7 +7,7 @@
         <record id="oit_mail_message_view_public" model="ir.rule">
             <field name="name">mail.message: access public message</field>
             <field name="model_id" ref="mail.model_mail_message"/>
-            <field name="domain_force">['|',('create_uid', '=', user.id),('subtype_id.name', 'not like', 'Private')]</field>
+            <field name="domain_force">['|','&amp;',('create_uid', '=', user.id),('subtype_id.name', 'not like', 'Private'),('subtype_id.name', 'not like', 'Salary')]</field>
             <field name="groups" eval="[(4, ref('base.group_user'))]"/>
         </record>
 
