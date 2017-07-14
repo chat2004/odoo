@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="assets_common" name="web client template" inherit_id="web.assets_common">
-        <xpath expr="." position="inside">
-            <link rel="stylesheet" href="/oit_mail/static/src/less/mimetypes.less"/>
-        </xpath>
-    </template>
+    <!--<template id="assets_common" name="web client template" inherit_id="web.assets_common">-->
+        <!--<xpath expr="." position="inside">-->
+            <!--<link rel="stylesheet" href="/oit_mail/static/src/less/mimetypes.less"/>-->
+        <!--</xpath>-->
+    <!--</template>-->
 </odoo>
