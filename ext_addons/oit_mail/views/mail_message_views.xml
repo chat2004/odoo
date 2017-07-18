@@ -101,20 +101,20 @@
             </field>
         </record>
 
-        <!--<record model="ir.ui.view" id="oit_view_document_file_kanban">-->
-            <!--<field name="name">ir.attachment kanban</field>-->
-            <!--<field name="model">ir.attachment</field>-->
-            <!--<field name="inherit_id" ref="mail.view_document_file_kanban"/>-->
-            <!--<field name="arch" type="xml">-->
-                <!--<xpath expr="/kanban/templates/t/div/div/div/div[2]" position="after">-->
-                    <!--<div t-if="record.type.raw_value == 'url'">-->
-                        <!--<a t-attf-href="/web/content/#{record.id.value}?download=1">-->
-                            <!--<div class="o_image" t-att-data-mimetype="record.mimetype.value"/>-->
-                        <!--</a>-->
-                    <!--</div>-->
-                <!--</xpath>-->
-            <!--</field>-->
-        <!--</record>-->
+        <record model="ir.ui.view" id="oit_view_document_file_kanban">
+            <field name="name">ir.attachment kanban</field>
+            <field name="model">ir.attachment</field>
+            <field name="inherit_id" ref="mail.view_document_file_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr="/kanban/templates/t/div/div/div/div[2]" position="after">
+                    <div t-if="record.type.raw_value == 'url'">
+                        <a t-attf-href="/web/content/#{record.id.value}?download=1">
+                            <div class="o_image" t-att-data-mimetype="record.mimetype.value"/>
+                        </a>
+                    </div>
+                </xpath>
+            </field>
+        </record>
 
         <!-- Action for new menu item message -->
         <record id="oit_action_view_mail_message" model="ir.actions.act_window">
