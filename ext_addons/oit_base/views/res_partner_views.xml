@@ -23,6 +23,27 @@
             </field>
         </record>
 
+        <record model="ir.actions.act_window" id="oit_action_res_partner_documents">
+            <field name="name">Partner Documents</field>
+            <field name="res_model">ir.attachment</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_id" eval="False"/>
+            <field name="search_view_id" ref="oit_ir_attachment_view_search_inherit_res_partner"/>
+            <field name="domain">['&amp;',('res_model','=','res.partner'),('res_id', '=', active_id)]</field>
+            <field name="context">{'create': False}</field>
+            <field name="help" type="html">
+                <p>
+                    No document yet.
+                </p><p>
+                    This menu helps you search through resumes and motivation
+                    letters. Odoo automatically indexes .PDF, .DOC, DOCX, .TXT
+                    files so that you can search keywords from the content of these
+                    files.
+                </p>
+            </field>
+        </record>
+
         <!-- Views -->
         <record model="ir.ui.view" id="oit_view_partner_form">
             <field name="name">oit.view.res.partner.form</field>
