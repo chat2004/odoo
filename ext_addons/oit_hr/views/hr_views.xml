@@ -22,12 +22,12 @@
                 </xpath>
             </field>
         </record>
-        <record model="ir.actions.act_window" id="oit_hr_employee_documents">
-            <field name="name">Employee Documents</field>
+        <record model="ir.actions.act_window" id="oit_action_hr_all_employee_documents">
+            <field name="name">All Employee Documents</field>
             <field name="res_model">ir.attachment</field>
             <field name="view_type">form</field>
             <field name="view_mode">kanban,tree,form</field>
-            <field name="view_id" ref="mail.view_document_file_kanban"/>
+            <field name="view_id" eval="False"/>
             <field name="search_view_id" ref="oit_ir_attachment_view_search_inherit_hr_employee"/>
             <field name="domain">[('res_model','=','hr.employee')]</field>
             <field name="context">{'create': False}</field>
@@ -42,8 +42,28 @@
                 </p>
             </field>
         </record>
-        <menuitem name="Documents" parent="hr.menu_hr_root" id="menu_human_resources_documents"
-                  action="oit_hr_employee_documents" sequence="3"/>
+        <record model="ir.actions.act_window" id="oit_action_hr_employee_documents">
+            <field name="name">Employee Documents</field>
+            <field name="res_model">ir.attachment</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_id" eval="False"/>
+            <field name="search_view_id" ref="oit_ir_attachment_view_search_inherit_hr_employee"/>
+            <field name="domain">['&amp;',('res_model','=','hr.employee'),('res_id', '=', active_id)]</field>
+            <field name="context">{'create': False}</field>
+            <field name="help" type="html">
+                <p>
+                    No document yet.
+                </p><p>
+                    This menu helps you search through resumes and motivation
+                    letters. Odoo automatically indexes .PDF, .DOC, DOCX, .TXT
+                    files so that you can search keywords from the content of these
+                    files.
+                </p>
+            </field>
+        </record>
+        <menuitem name="Documents" parent="hr.menu_hr_root" id="oit_menu_human_resources_documents"
+                  action="oit_action_hr_all_employee_documents" sequence="3"/>
 
         <!-- Views -->
         <record model="ir.ui.view" id="oit_view_employee_form">
