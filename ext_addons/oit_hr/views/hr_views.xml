@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Employee Documents -->
+        <record id="oit_ir_attachment_view_search_inherit_hr_employee" model="ir.ui.view">
+            <field name="name">oit.ir.attachment.search.inherit.employee</field>
+            <field name="model">ir.attachment</field>
+            <field name="mode">primary</field>
+            <field name="inherit_id" ref="base.view_attachment_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='create_date']" position="after">
+                    <field name="index_content" string="Content"/>
+                </xpath>
+                <xpath expr="//filter[@name='my_documents_filter']" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </xpath>
+                <xpath expr="//filter[@name='url_filter']" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </xpath>
+                <xpath expr="//filter[@name='binary_filter']" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </xpath>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="oit_hr_employee_documents">
+            <field name="name">Employee Documents</field>
+            <field name="res_model">ir.attachment</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_id" ref="mail.view_document_file_kanban"/>
+            <field name="search_view_id" ref="oit_ir_attachment_view_search_inherit_hr_employee"/>
+            <field name="domain">[('res_model','=','hr.employee')]</field>
+            <field name="context">{'create': False}</field>
+            <field name="help" type="html">
+                <p>
+                    No document yet.
+                </p><p>
+                    This menu helps you search through resumes and motivation
+                    letters. Odoo automatically indexes .PDF, .DOC, DOCX, .TXT
+                    files so that you can search keywords from the content of these
+                    files.
+                </p>
+            </field>
+        </record>
+        <menuitem name="Documents" parent="hr.menu_hr_root" id="menu_human_resources_documents"
+                  action="oit_hr_employee_documents" sequence="3"/>
+
+        <!-- Views -->
+        <record model="ir.ui.view" id="oit_view_employee_form">
+            <field name="name">hr.employee.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/sheet/div[1]/button[@name='toggle_active']" position="after">
+                    <button name="action_get_attachment_tree_view"
+                        class="oe_stat_button"
+                        icon="fa-book"
+                        type="object">
+                        <field name="attachment_number" widget="statinfo" string="Documents"/>
+                    </button>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
