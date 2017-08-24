@@ -21,7 +21,7 @@ class Partner(models.Model):
 
     @api.multi
     def action_get_attachment_tree_view(self):
-        attachment_action = self.env.ref('base.action_attachment')
+        attachment_action = self.env.ref('oit_base.oit_action_res_partner_documents')
         action = attachment_action.read()[0]
         action['context'] = {'default_res_model': self._name,
                              'default_res_id': self.ids[0]}

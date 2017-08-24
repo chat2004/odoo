@@ -102,7 +102,7 @@
         </record>
 
         <record model="ir.ui.view" id="oit_view_document_file_kanban">
-            <field name="name">ir.attachment kanban</field>
+            <field name="name">oit.ir.attachment kanban</field>
             <field name="model">ir.attachment</field>
             <field name="inherit_id" ref="mail.view_document_file_kanban"/>
             <field name="arch" type="xml">
@@ -118,7 +118,7 @@
 
         <!-- Action for new menu item message -->
         <record id="oit_action_view_mail_message" model="ir.actions.act_window">
-            <field name="name">Messages</field>
+            <field name="name">Oit Messages</field>
             <field name="res_model">mail.message</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
