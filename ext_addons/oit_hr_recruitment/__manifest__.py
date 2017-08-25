@@ -20,6 +20,7 @@
         # 'security/ir.model.access.csv',
         'security/hr_recruitment_security.xml',
         'views/hr_recruitment_views.xml',
+        'views/hr_job_views.xml',
         'views/templates.xml',
     ],
     # only loaded in demonstration mode
