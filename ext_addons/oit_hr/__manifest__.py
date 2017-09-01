@@ -24,5 +24,6 @@
     'data': [
         # 'security/ir.model.access.csv',
         'views/hr_views.xml',
+        'security/hr_security.xml',
     ],
 }

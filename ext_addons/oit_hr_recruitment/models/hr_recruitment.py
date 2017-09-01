@@ -13,6 +13,8 @@ class OitApplicant(models.Model):
 
     salary_visible = fields.Boolean(string="Salary Visible", compute='_get_user',
                                     default=_get_user_default)
+    meeting_count = fields.Integer("# Meetings",
+                                   compute='_compute_meeting_count')
 
     @api.depends('salary_visible')
     def _get_user(self):
@@ -33,3 +35,9 @@ class OitApplicant(models.Model):
         action['search_view_id'] = (self.env.ref(
             'hr_recruitment.ir_attachment_view_search_inherit_hr_recruitment').id,)
         return action
+
+    @api.multi
+    def _compute_meeting_count(self):
+        for record in self:
+            if record.partner_id:
+                record.meeting_count = len(record.partner_id.meeting_ids)

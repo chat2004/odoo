@@ -53,6 +53,13 @@
             <field name="model">hr.applicant</field>
             <field name="inherit_id" ref="hr_recruitment.crm_case_form_view_job"/>
             <field name="arch" type="xml">
+                <xpath expr="/form/sheet/div[1]/button[@name='action_makeMeeting']" position="replace">
+                    <button name="action_makeMeeting" class="oe_stat_button" icon="fa-calendar" type="object"
+                         help="Schedule interview with this applicant">
+                        <field string="Meetings" name="meeting_count" widget="statinfo"/>
+                    </button>
+                </xpath>
+
                 <xpath expr="/form/sheet/group/group[4]/div[1]/field[@name='salary_expected']" position="before">
                     <field name="salary_visible" invisible="1"/>
                 </xpath>

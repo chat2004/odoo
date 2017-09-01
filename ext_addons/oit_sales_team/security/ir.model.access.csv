@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_oit_sales_team_oit_sales_team,oit_sales_team.oit_sales_team,model_oit_sales_team_oit_sales_team,,1,0,0,0

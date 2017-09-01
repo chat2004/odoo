@@ -6,6 +6,7 @@ class OitJob(models.Model):
 
     @api.multi
     def action_get_attachment_tree_view(self):
+        self.ensure_one()
         action = self.env.ref('oit_hr_recruitment.oit_hr_job_documents').read()[0]
         action['context'] = {
             'default_res_model': self._name,
